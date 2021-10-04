@@ -157,6 +157,15 @@
             },
             "responseClass": "CSD\\Marketo\\Response\\CreateOrUpdateLeadsResponse"
         },
+        "submitFormRequest": {
+          "httpMethod": "POST",
+          "uri": "leads/submitForm.json",
+          "parameters": {
+            "input": {"location": "json"},
+            "formId": {"location": "json"}
+          },
+          "responseClass": "CSD\\Marketo\\Response"
+        },        
         "addLeadsToList": {
             "httpMethod": "POST",
             "uri": "lists/{listId}/leads.json",
