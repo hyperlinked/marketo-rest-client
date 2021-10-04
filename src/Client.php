@@ -211,6 +211,24 @@ class Client extends GuzzleClient
         return $this->getResult('createOrUpdateLeads', $args, false, $returnRaw);
     }
 
+  /**
+   * Calls the submitForm command to submit a Forms 2.0 POST request.
+   *
+   * @param array  $fields
+   * @param string $formId
+   *
+   * @link https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/SubmitFormUsingPOST
+   *
+   * @return CreateOrUpdateLeadsResponse
+   */
+  private function submitFormCommand($formId, $fields, $args, $returnRaw = false)
+  {
+    $args['input'] = $fields;
+    $args['formId'] = $formId;
+
+    return $this->getResult('submitFormRequest', $args, false, $returnRaw);
+  }
+
     /**
      * Only update the given opportunity roles.
      *
@@ -408,6 +426,22 @@ class Client extends GuzzleClient
         return $this->createOrUpdateLeadsCommand('createOnly', $leads, $lookupField, $args);
     }
 
+  /**
+   * Create the given leads.
+   *
+   * @param array  $leads
+   * @param string $lookupField
+   * @param array  $args
+   * @see Client::createOrUpdateLeadsCommand()
+   *
+   * @link http://developers.marketo.com/documentation/rest/createupdate-leads/
+   *
+   * @return CreateOrUpdateLeadsResponse
+   */
+  public function submitMarketoForm($fields, $formId = null, $args = array())
+  {
+    return $this->submitFormCommand($fields, $formId, $args);
+  }
     /**
      * Update the given leads, or create them if they do not exist.
      *
