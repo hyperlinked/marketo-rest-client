@@ -219,7 +219,7 @@ class Client extends GuzzleClient
    *
    * @link https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/SubmitFormUsingPOST
    *
-   * @return CreateOrUpdateLeadsResponse
+   * @return Response
    */
   private function submitFormCommand($formId, $fields, $args, $returnRaw = false)
   {
@@ -437,7 +437,7 @@ class Client extends GuzzleClient
      *
      * @link http://developers.marketo.com/documentation/rest/createupdate-leads/
      *
-     * @return CreateOrUpdateLeadsResponse
+     * @return Response
      */
     public function submitMarketoForm($fields, $formId = null, $args = array())
     {
