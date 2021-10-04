@@ -215,7 +215,7 @@ class Client extends GuzzleClient
    * Calls the submitForm command to submit a Forms 2.0 POST request.
    *
    * @param array  $fields
-   * @param string $formId
+   * @param int $formId
    *
    * @link https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/SubmitFormUsingPOST
    *
@@ -426,16 +426,14 @@ class Client extends GuzzleClient
     {
         return $this->createOrUpdateLeadsCommand('createOnly', $leads, $lookupField, $args);
     }
-
+    
     /**
-     * Create the given leads.
+     * Submit a Forms 2.0 form
      *
-     * @param array  $leads
-     * @param string $lookupField
+     * @param array  $fields
+     * @param int $formId
      * @param array  $args
-     * @see Client::createOrUpdateLeadsCommand()
-     *
-     * @link http://developers.marketo.com/documentation/rest/createupdate-leads/
+     * @see Client::submitFormCommand()
      *
      * @return Response
      */
